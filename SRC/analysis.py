@@ -21,20 +21,19 @@ df_cine_bv = pd.read_csv('../Output/df_cine_bv.csv')
 #Nuevo dataframe dividido por géneros y media, max y min.
 df_cine_vote_genre = df_cine_vote.groupby(['GENRE'])
 df_cine_vote_genre_mean = df_cine_vote_genre.mean()
-
+"""
 df_cine_vote_genre.vote_average.mean()
 
 df_cine_vote_genre.max()
 
-df_cine_vote_genre.min()
+df_cine_vote_genre.min()"""
 
 #Nueva columna y agrupación para poder trabajarlo con nuevos datos.
 df_cine_bv["ROI"] = ((df_cine_bv["revenue"]-df_cine_bv["budget"])/df_cine_bv["budget"])*100
-df_cine_bv_genre = df_cine_bv.groupby(['GENRE'])
 
+df_cine_bv_genre = df_cine_bv.groupby(['GENRE'])
 mean_roi_genre = (df_cine_bv_genre.ROI.mean().astype(int))
 mean_roi_genre = pd.DataFrame(mean_roi_genre).sort_values(['ROI'], ascending=[False])
-mean_roi_genre
 
 #Añado la columna de género para poder trabajarla en un gráfico.
 
